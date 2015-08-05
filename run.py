@@ -9,11 +9,11 @@ api = twitter.Api(consumer_key=creds['consumer_key'],
                   access_token_key=creds['access_token_key'],
                   access_token_secret=creds['access_token_secret'])
 
-results = api.GetSearch('retweet to win! -follow -tune', count=100)
+search_results = api.GetSearch('retweet to win! -follow -tune', count=100)
 
-# Retween them all
-for r in results:
+for result in search_results:
     try:
-        api.PostRetweet(r.GetId())
+        api.PostRetweet(result.GetId())
+        print 'retweeted ', result.text
     except twitter.error.TwitterError:
-        print 'already retweeted ', r.text
+        print 'already retweeted ', result.text
