@@ -9,7 +9,7 @@ api = twitter.Api(consumer_key=creds['consumer_key'],
                   access_token_key=creds['access_token_key'],
                   access_token_secret=creds['access_token_secret'])
 
-search_results = api.GetSearch('retweet to win! -follow -tune', count=100)
+search_results = api.GetSearch('retweet to win! -follow -tune -email -link', count=100)
 
 for result in search_results:
     try:
